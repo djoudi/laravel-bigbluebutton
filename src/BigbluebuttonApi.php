@@ -319,7 +319,7 @@ class BigbluebuttonApi
      */
     public function getMeetings()
     {
-        $xml = $this->_processXmlResponse($this->getGetMeetingsUrl());
+        $xml = $this->processXmlResponse($this->getGetMeetingsUrl());
         if ($xml) {
             // If we don't get a success code, stop processing and return just the returncode:
             if ($xml->returncode != 'SUCCESS') {
@@ -379,7 +379,7 @@ class BigbluebuttonApi
         $urlParams = http_build_query($params);
         $checksum = $this->getChecksum('getMeetignInfo', $urlParams);
 
-        $url = $runningUrl . $urlParams . $checksum;
+        $url = $infoUrl . $urlParams . $checksum;
 
         return $url;
     }
